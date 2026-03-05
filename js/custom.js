@@ -345,36 +345,38 @@ var Jestem = {
 		   });
 		}
 		
-	    function loadContent() {　
-		   // Use fetch instead of jQuery .load() for better CORS handling
-		   fetch(toLoad)
-		       .then(response => {
-		           if (!response.ok) {
-		               throw new Error('Network response was not ok');
-		           }
-		           return response.text();
-		       })
-		       .then(html => {
+	    function loadContent() {
+		   $.ajax({
+		       url: toLoad,
+		       dataType: 'html',
+		       cache: false,
+		       success: function(html) {
 		           $('#portfolio-details').html(html);
-		           $('.ajax-loader','#portfolio').fadeOut(function() {
-		               if(loadingPortfolio) showNewContent();
-		           });
-		       })
-		       .catch(error => {
-		           console.error('Error loading portfolio:', error);
+		       },
+		       error: function(xhr, status, error) {
+		           console.error('Error loading portfolio:', status, error);
 		           $('#portfolio-details').html('<div class="portfolio-details-wrapper"><div class="item-details-header text-center"><h2 class="item-details-title">Error Loading Project</h2><span class="item-details-caption text-muted">Could not load project details</span></div></div><a href="#" class="btn btn-default btn-sm" data-target="close-details"><i class="fa fa-times"></i></a>');
-		           $('.ajax-loader','#portfolio').fadeOut(function() {
-		               if(loadingPortfolio) showNewContent();
-		           });
-		       });
-	　  }
+		       }
+		   });
+		}
 		
 		$('a[data-target="ajax-portfolio"]','#portfolio').on('click', function() {
 			loadingPortfolio = true;
-			toLoad = $(this).attr('href');　
+			toLoad = $(this).attr('href');
 			$('.ajax-loader','#portfolio').fadeIn();
 			loadContent();
 			return false;
+		});
+
+		$(document).ajaxStart(function() {
+			if(loadingPortfolio) {
+				$('.ajax-loader','#portfolio').fadeIn();
+			}
+		});
+		$(document).ajaxStop(function() {
+			$('.ajax-loader','#portfolio').fadeOut(function() {
+				if(loadingPortfolio) showNewContent();
+			});
 		});
 
 		function closeDetails() {
