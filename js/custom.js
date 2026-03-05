@@ -96,14 +96,14 @@ var Jestem = {
 					var $obj = $('.swiper-wrapper');
 					var getMatrix = function(obj) {
 				    	var matrix = $obj.css("-webkit-transform") ||
-					                 $obj.css("-moz-transform")    ||
-					                 $obj.css("-ms-transform")     ||
-					                 $obj.css("-o-transform")      ||
-					                 $obj.css("transform");		
+			                 $obj.css("-moz-transform")    ||
+			                 $obj.css("-ms-transform")     ||
+			                 $obj.css("-o-transform")      ||
+			                 $obj.css("transform");		
 					    return matrix;
 					};
 					var matrix = getMatrix($obj);
-				    var matrixTmp = matrix.replace(/^matrix(3d)?\((.*)\)$/,'$2').split(/, /);
+				    var matrixTmp = matrix.replace(/^matrix(3d)?\\((.*)\\)$/,'$2').split(/, /);
 					matrix = matrixTmp[4];
 					if(matrix>20) showHome();
 				}
@@ -346,23 +346,35 @@ var Jestem = {
 		}
 		
 	    function loadContent() {　
-		   $('#portfolio-details').load(toLoad);
+		   // Use fetch instead of jQuery .load() for better CORS handling
+		   fetch(toLoad)
+		       .then(response => {
+		           if (!response.ok) {
+		               throw new Error('Network response was not ok');
+		           }
+		           return response.text();
+		       })
+		       .then(html => {
+		           $('#portfolio-details').html(html);
+		           $('.ajax-loader','#portfolio').fadeOut(function() {
+		               if(loadingPortfolio) showNewContent();
+		           });
+		       })
+		       .catch(error => {
+		           console.error('Error loading portfolio:', error);
+		           $('#portfolio-details').html('<div class="portfolio-details-wrapper"><div class="item-details-header text-center"><h2 class="item-details-title">Error Loading Project</h2><span class="item-details-caption text-muted">Could not load project details</span></div></div><a href="#" class="btn btn-default btn-sm" data-target="close-details"><i class="fa fa-times"></i></a>');
+		           $('.ajax-loader','#portfolio').fadeOut(function() {
+		               if(loadingPortfolio) showNewContent();
+		           });
+		       });
 	　  }
 		
 		$('a[data-target="ajax-portfolio"]','#portfolio').on('click', function() {
 			loadingPortfolio = true;
 			toLoad = $(this).attr('href');　
+			$('.ajax-loader','#portfolio').fadeIn();
 			loadContent();
 			return false;
-		});
-
-		$(document).ajaxStart(function() {
-			$('.ajax-loader','#portfolio').fadeIn();
-		});
-		$(document).ajaxStop(function() {
-			$('.ajax-loader','#portfolio').fadeOut(function() {
-				if(loadingPortfolio) showNewContent();
-			});
 		});
 
 		function closeDetails() {
@@ -430,7 +442,7 @@ var Jestem = {
 			  $('html').addClass('safari');
 			}
 		}
-		if (ua.indexOf('msie') > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+		if (ua.indexOf('msie') > 0 || !!navigator.userAgent.match(/Trident.*rv\\:11\\./)) {
 			$('html').addClass('ie');
 		}
 	},
