@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /kevinO/
+Disallow: /xavier/
+
+Sitemap: http://www.niconlyone.com/siteMap.xml
