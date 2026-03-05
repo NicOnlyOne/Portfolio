@@ -1,0 +1,129 @@
+/**
+ * Design Tokens
+ * 
+ * Core design tokens for the portfolio.
+ * These tokens define the design system independently of any framework.
+ * Use these variables in your custom CSS for consistency.
+ */
+
+:root {
+  /* ========== Colors ========== */
+  /* Primary Brand Colors */
+  --ds-color-primary: #428bca;
+  --ds-color-primary-hover: #3071a9;
+  --ds-color-primary-active: #285e8e;
+  
+  /* Secondary Colors */
+  --ds-color-secondary: #6c757d;
+  --ds-color-success: #5cb85c;
+  --ds-color-info: #5bc0de;
+  --ds-color-warning: #f0ad4e;
+  --ds-color-danger: #d9534f;
+  
+  /* Neutral Colors */
+  --ds-color-light: #f8f9fa;
+  --ds-color-dark: #212529;
+  --ds-color-white: #ffffff;
+  --ds-color-black: #000000;
+  
+  /* Text Colors */
+  --ds-color-text-primary: #333333;
+  --ds-color-text-secondary: #666666;
+  --ds-color-text-muted: #999999;
+  
+  /* Background Colors */
+  --ds-color-bg-primary: #ffffff;
+  --ds-color-bg-secondary: #f5f5f5;
+  --ds-color-bg-dark: #1a1a1a;
+  
+  /* Border Colors */
+  --ds-color-border-light: #e5e5e5;
+  --ds-color-border-medium: #cccccc;
+  --ds-color-border-dark: #333333;
+  
+  /* ========== Spacing Scale ========== */
+  --ds-space-0: 0;
+  --ds-space-1: 0.25rem;   /* 4px */
+  --ds-space-2: 0.5rem;    /* 8px */
+  --ds-space-3: 1rem;      /* 16px */
+  --ds-space-4: 1.5rem;    /* 24px */
+  --ds-space-5: 2rem;      /* 32px */
+  --ds-space-6: 3rem;      /* 48px */
+  --ds-space-7: 4rem;      /* 64px */
+  --ds-space-8: 6rem;      /* 96px */
+  
+  /* ========== Typography ========== */
+  /* Font Families */
+  --ds-font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --ds-font-family-heading: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --ds-font-family-monospace: 'Monaco', 'Courier New', monospace;
+  
+  /* Font Sizes */
+  --ds-font-size-xs: 0.75rem;    /* 12px */
+  --ds-font-size-sm: 0.875rem;   /* 14px */
+  --ds-font-size-base: 1rem;     /* 16px */
+  --ds-font-size-lg: 1.125rem;   /* 18px */
+  --ds-font-size-xl: 1.25rem;    /* 20px */
+  --ds-font-size-2xl: 1.5rem;    /* 24px */
+  --ds-font-size-3xl: 1.875rem;  /* 30px */
+  --ds-font-size-4xl: 2.25rem;   /* 36px */
+  --ds-font-size-5xl: 3rem;      /* 48px */
+  
+  /* Font Weights */
+  --ds-font-weight-light: 300;
+  --ds-font-weight-normal: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+  
+  /* Line Heights */
+  --ds-line-height-tight: 1.25;
+  --ds-line-height-base: 1.5;
+  --ds-line-height-relaxed: 1.75;
+  --ds-line-height-loose: 2;
+  
+  /* Letter Spacing */
+  --ds-letter-spacing-tight: -0.025em;
+  --ds-letter-spacing-normal: 0;
+  --ds-letter-spacing-wide: 0.025em;
+  --ds-letter-spacing-wider: 0.05em;
+  
+  /* ========== Border Radius ========== */
+  --ds-radius-none: 0;
+  --ds-radius-sm: 0.25rem;     /* 4px */
+  --ds-radius-md: 0.375rem;    /* 6px */
+  --ds-radius-lg: 0.5rem;      /* 8px */
+  --ds-radius-xl: 0.75rem;     /* 12px */
+  --ds-radius-2xl: 1rem;       /* 16px */
+  --ds-radius-full: 9999px;    /* Fully rounded */
+  
+  /* ========== Shadows ========== */
+  --ds-shadow-none: none;
+  --ds-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --ds-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --ds-shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --ds-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --ds-shadow-xl: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+  
+  /* ========== Transitions ========== */
+  --ds-transition-fast: 150ms ease-in-out;
+  --ds-transition-base: 300ms ease-in-out;
+  --ds-transition-slow: 500ms ease-in-out;
+  
+  /* ========== Z-Index Scale ========== */
+  --ds-z-index-dropdown: 1000;
+  --ds-z-index-sticky: 1020;
+  --ds-z-index-fixed: 1030;
+  --ds-z-index-modal-backdrop: 1040;
+  --ds-z-index-modal: 1050;
+  --ds-z-index-popover: 1060;
+  --ds-z-index-tooltip: 1070;
+  
+  /* ========== Breakpoints (for reference in JS) ========== */
+  --ds-breakpoint-xs: 0;
+  --ds-breakpoint-sm: 576px;
+  --ds-breakpoint-md: 768px;
+  --ds-breakpoint-lg: 992px;
+  --ds-breakpoint-xl: 1200px;
+  --ds-breakpoint-xxl: 1400px;
+}

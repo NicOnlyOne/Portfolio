@@ -1,0 +1,99 @@
+/**
+ * Bootstrap 5 Bridge Layer
+ * 
+ * Maps design tokens to Bootstrap 5 CSS variables.
+ * This allows Bootstrap components to use our design system tokens.
+ * Load this AFTER tokens.css and AFTER bootstrap.min.css.
+ */
+
+:root {
+  /* ========== Bootstrap Color System ========== */
+  --bs-primary: var(--ds-color-primary);
+  --bs-primary-rgb: 66, 139, 202;
+  
+  --bs-secondary: var(--ds-color-secondary);
+  --bs-secondary-rgb: 108, 117, 125;
+  
+  --bs-success: var(--ds-color-success);
+  --bs-success-rgb: 92, 184, 92;
+  
+  --bs-info: var(--ds-color-info);
+  --bs-info-rgb: 91, 192, 222;
+  
+  --bs-warning: var(--ds-color-warning);
+  --bs-warning-rgb: 240, 173, 78;
+  
+  --bs-danger: var(--ds-color-danger);
+  --bs-danger-rgb: 217, 83, 79;
+  
+  --bs-light: var(--ds-color-light);
+  --bs-light-rgb: 248, 249, 250;
+  
+  --bs-dark: var(--ds-color-dark);
+  --bs-dark-rgb: 33, 37, 41;
+  
+  /* ========== Typography ========== */
+  --bs-body-font-family: var(--ds-font-family-base);
+  --bs-body-font-size: var(--ds-font-size-base);
+  --bs-body-font-weight: var(--ds-font-weight-normal);
+  --bs-body-line-height: var(--ds-line-height-base);
+  --bs-body-color: var(--ds-color-text-primary);
+  
+  --bs-heading-font-family: var(--ds-font-family-heading);
+  
+  /* ========== Border Radius ========== */
+  --bs-border-radius: var(--ds-radius-md);
+  --bs-border-radius-sm: var(--ds-radius-sm);
+  --bs-border-radius-lg: var(--ds-radius-lg);
+  --bs-border-radius-xl: var(--ds-radius-xl);
+  --bs-border-radius-2xl: var(--ds-radius-2xl);
+  --bs-border-radius-pill: var(--ds-radius-full);
+  
+  /* ========== Shadows ========== */
+  --bs-box-shadow-sm: var(--ds-shadow-sm);
+  --bs-box-shadow: var(--ds-shadow-md);
+  --bs-box-shadow-lg: var(--ds-shadow-lg);
+  
+  /* ========== Spacing ========== */
+  /* Bootstrap uses a spacing scale of 0-5 */
+  /* Map our tokens to Bootstrap's scale */
+  --bs-gutter-x: var(--ds-space-3);
+  --bs-gutter-y: var(--ds-space-3);
+}
+
+/* ========== Component-Specific Overrides ========== */
+
+/* Buttons - ensure they use our primary color */
+.btn-primary {
+  --bs-btn-bg: var(--ds-color-primary);
+  --bs-btn-border-color: var(--ds-color-primary);
+  --bs-btn-hover-bg: var(--ds-color-primary-hover);
+  --bs-btn-hover-border-color: var(--ds-color-primary-hover);
+  --bs-btn-active-bg: var(--ds-color-primary-active);
+  --bs-btn-active-border-color: var(--ds-color-primary-active);
+}
+
+/* Forms - consistent borders */
+.form-control {
+  border-color: var(--ds-color-border-light);
+}
+
+.form-control:focus {
+  border-color: var(--ds-color-primary);
+  box-shadow: 0 0 0 0.25rem rgba(66, 139, 202, 0.25);
+}
+
+/* Cards - if you add them later */
+.card {
+  border-color: var(--ds-color-border-light);
+}
+
+/* Navs */
+.nav-link {
+  color: var(--ds-color-text-primary);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--ds-color-primary);
+}
