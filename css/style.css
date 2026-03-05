@@ -1425,6 +1425,10 @@
 		-webkit-appearance:none; 
 	}
 
+	.form-group {
+		margin-bottom: 15px;
+	}
+
 	.form-control {
 		height: 40px;
 		border-radius: var(--ds-radius-none);
